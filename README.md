@@ -108,8 +108,8 @@ flowchart LR
 ### 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com/Butey/Bridge.LM-.git
-cd Bridge.LM-
+git clone https://github.com/Butey/Bridge.LM.git
+cd Bridge.LM
 ```
 
 ### 2. Настройка переменных окружения
