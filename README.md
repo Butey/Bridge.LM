@@ -1,4 +1,4 @@
-# Bridge.LM — Интеллектуальный синхронизатор базы знаний BookStack
+# Bridge.LM — Интеллектуальный генератор базы знаний BookStack
 
 <div align="center">
 
