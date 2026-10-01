@@ -1,0 +1,6 @@
+{
+  "name": "Bridge.LM: Gemini to BookStack Sync",
+  "description": "Seamlessly synthesize tickets, logs, and docs into verified BookStack Wiki articles using Google Gemini AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
