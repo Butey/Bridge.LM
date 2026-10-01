@@ -8,6 +8,7 @@
 [![React](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=black)](#стек-технологий)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss&logoColor=white)](#стек-технологий)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ed?logo=docker&logoColor=white)](#развертывание-в-docker)
+[![Docker Image](https://img.shields.io/badge/Docker-ghcr.io%2Fbutey%2Fbridge.lm-blue?logo=docker&logoColor=white)](https://github.com/Butey/Bridge.LM/pkgs/container/bridge.lm)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 </div>
@@ -157,17 +158,34 @@ npm run dev
 
 ## 🐳 Развертывание в Docker
 
-Для продакшн-окружения рекомендуется использовать Docker Compose. Dockerfile оптимизирован по потреблению оперативной памяти (`NODE_OPTIONS="--max-old-space-size=..."`) и использует двухстадийную сборку.
+### Вариант 1. Запуск готового публичного Docker-образа (Рекомендуется)
+
+Готовый образ автоматически собирается и публикуется в GitHub Container Registry (`ghcr.io`):
 
 ```bash
-# Сборка и запуск контейнера в фоне
-docker-compose up -d --build
-
-# Просмотр логов
-docker-compose logs -f
+# Быстрый запуск одной командой
+docker run -d \
+  -p 3000:3000 \
+  --name bridge-lm \
+  --env-file .env \
+  --restart unless-stopped \
+  ghcr.io/butey/bridge.lm:latest
 ```
 
-Контейнер будет запущен и доступен на порту `3000`.
+### Вариант 2. Запуск через Docker Compose
+
+```bash
+# Запуск с автоматическим подтягиванием публичного образа
+docker compose up -d
+
+# Или сборка из локальных исходников
+docker compose up -d --build
+
+# Просмотр логов
+docker compose logs -f
+```
+
+Контейнер будет запущен и доступен по адресу: **http://localhost:3000**
 
 ---
 
